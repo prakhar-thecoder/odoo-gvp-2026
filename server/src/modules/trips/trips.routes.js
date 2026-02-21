@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const tripsController = require('./trips.controller');
 
-router.get('/', (req, res) => {
-    res.json({ message: 'Trips route working' });
-});
+router.post('/', tripsController.createTrip);
+router.get('/', tripsController.getTrips);
+router.patch('/:id/status', tripsController.updateTripStatus);
 
 module.exports = router;
