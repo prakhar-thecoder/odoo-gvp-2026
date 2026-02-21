@@ -1,7 +1,8 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/maintenance';
+const VEHICLES_API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/vehicles';
 
 export const fetchVehicles = async () => {
-    const response = await fetch(`${API_URL}/vehicles`);
+    const response = await fetch(VEHICLES_API_URL);
     if (!response.ok) {
         throw new Error('Failed to fetch vehicles');
     }
@@ -9,7 +10,7 @@ export const fetchVehicles = async () => {
 };
 
 export const fetchMaintenanceLogs = async () => {
-    const response = await fetch(`${API_URL}/maintenance`);
+    const response = await fetch(API_URL);
     if (!response.ok) {
         throw new Error('Failed to fetch maintenance logs');
     }
@@ -17,7 +18,7 @@ export const fetchMaintenanceLogs = async () => {
 };
 
 export const createMaintenanceLog = async (data) => {
-    const response = await fetch(`${API_URL}/maintenance`, {
+    const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ export const createMaintenanceLog = async (data) => {
 };
 
 export const updateMaintenanceStatus = async (id, status) => {
-    const response = await fetch(`${API_URL}/maintenance/${id}/status`, {
+    const response = await fetch(`${API_URL}/${id}/status`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
