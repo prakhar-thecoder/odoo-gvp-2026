@@ -4,7 +4,7 @@
 
 A centralized, rule-based digital hub that optimizes the lifecycle of a delivery fleet, monitors driver safety, and tracks financial performance.
 
-[🌐 Live Demo](https://www.google.com/search?q=%23) • [📧 Contact](mailto:shah.leena.287@gmail.com)
+[🌐 Live Demo](https://fleetmaster-odoo-gvp-2026.vercel.app/) • [📧 Contact](mailto:shah.leena.287@gmail.com)
 
 </div>
 
