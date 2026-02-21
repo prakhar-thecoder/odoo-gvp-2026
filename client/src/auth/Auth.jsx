@@ -9,8 +9,8 @@ const Auth = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showDemoCreds, setShowDemoCreds] = useState(false);
     const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -46,6 +46,54 @@ const Auth = () => {
                     {isLogin ? 'Welcome back' : 'Create an account'}
                 </h2>
 
+                {isLogin && (
+                    <div className="mb-6 rounded-lg border border-blue-200 overflow-hidden shadow-sm">
+                        <button 
+                            type="button"
+                            onClick={() => setShowDemoCreds(!showDemoCreds)}
+                            className="w-full flex items-center justify-between bg-blue-50 px-4 py-3 text-blue-800 font-medium hover:bg-blue-100 transition focus:outline-none"
+                        >
+                            <span className="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                </svg>
+                                Jury Demo Credentials
+                            </span>
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                className={`h-5 w-5 transform transition-transform duration-200 ${showDemoCreds ? 'rotate-180' : ''}`} 
+                                viewBox="0 0 20 20" 
+                                fill="currentColor"
+                            >
+                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                        </button>
+                        
+                        <div className={`px-4 py-3 bg-white border-t border-blue-100 transition-all duration-300 ${showDemoCreds ? 'block' : 'hidden'}`}>
+                            <div className="flex flex-col space-y-2 text-sm text-gray-700">
+                                <div className="flex justify-between items-center">
+                                    <span className="font-medium text-gray-500">Email:</span>
+                                    <span className="font-mono bg-blue-50 text-blue-700 px-2 py-1 rounded select-all">jury@hackathon.odoo.com</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="font-medium text-gray-500">Password:</span>
+                                    <span className="font-mono bg-blue-50 text-blue-700 px-2 py-1 rounded select-all">odoo@123</span>
+                                </div>
+                                <button 
+                                    type="button"
+                                    onClick={() => {
+                                        setEmail('jury@hackathon.odoo.com');
+                                        setPassword('odoo@123');
+                                    }}
+                                    className="mt-2 w-full text-xs bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 rounded transition"
+                                >
+                                    Auto-fill Credentials
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
                 {error && (
                     <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
                         <span className="block sm:inline">{error}</span>
@@ -62,7 +110,7 @@ const Auth = () => {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required={!isLogin}
-                                placeholder="John Doe"
+                                placeholder="Your Name"
                             />
                         </div>
                     )}
