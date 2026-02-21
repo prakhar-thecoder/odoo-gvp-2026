@@ -116,8 +116,7 @@ fleet-master/
 ```bash
 git clone https://github.com/prakhar-thecoder/odoo-gvp-2026.git
 cd fleet-master
-
-
+```
 
 
 2. **Setup the Backend**
