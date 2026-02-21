@@ -81,30 +81,30 @@ A centralized, rule-based digital hub that optimizes the lifecycle of a delivery
 ```text
 fleet-master/
 │
-├── client/                 # React Frontend
+├── client/                 # React Frontend (Vite)
 │   ├── src/
-│   │   ├── auth/           # Login & Registration
+│   │   ├── auth/           # Login & Registration UI
 │   │   ├── dashboard/      # Command Center & KPIs
-│   │   ├── maintenance/    # Service Logs & Status updates
-│   │   ├── trips/          # Dispatcher & Routing
-│   │   ├── vehicles/       # Asset Registry
+│   │   ├── maintenance/    # Service Logs UI
+│   │   ├── trips/          # Dispatcher & Routing UI
+│   │   ├── vehicles/       # Asset Registry UI
 │   │   ├── Layout.jsx      # Sidebar & Navigation
 │   │   └── App.jsx         # Routing & Protected State
 │   └── .env                # VITE_API_URL
 │
 └── server/                 # Express Backend
     ├── src/
-    │   ├── config/         # Database Connection
-    │   └── modules/        # Isolated Feature Modules
-    │       ├── auth/
-    │       ├── dashboard/
-    │       ├── maintenance/
-    │       ├── trips/
-    │       └── vehicles/
-    ├── index.js            # Server Entry Point
+    │   ├── config/
+    │   │   └── db.js       # MongoDB Connection Setup
+    │   ├── modules/        # Domain-Driven Feature Modules
+    │   │   ├── auth/       # (Controllers, Models, Routes, Middleware)
+    │   │   ├── dashboard/  # (Includes database seeding logic)
+    │   │   ├── maintenance/
+    │   │   ├── trips/
+    │   │   └── vehicles/
+    │   ├── app.js          # Express App & Global Middleware
+    │   └── index.js        # Server Entry Point
     └── .env                # PORT, MONGO_URI, JWT_SECRET
-
-```
 
 ---
 
