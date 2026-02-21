@@ -1,5 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/maintenance';
-const VEHICLES_API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/vehicles';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = `${BASE_URL}/maintenance`;
+const VEHICLES_API_URL = `${BASE_URL}/vehicles`;
 
 export const fetchVehicles = async () => {
     const response = await fetch(VEHICLES_API_URL);
