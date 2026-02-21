@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api/trips';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/trips';
 
 const getHeaders = () => {
     const token = localStorage.getItem('token');
