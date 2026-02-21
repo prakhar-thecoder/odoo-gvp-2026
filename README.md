@@ -12,8 +12,8 @@ A centralized, rule-based digital hub that optimizes the lifecycle of a delivery
 
 ## 📸 Preview
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/c5aab444-3b54-4a46-88e4-36860c5dbb10" alt="FleetMaster Demo" width="100%" />
-  <p><i>Real-time overview of fleet operations, trip dispatching, and automated maintenance tracking.</i></p>
+  <video src="https://github.com/user-attachments/assets/37c8ac01-e87f-4c93-bea6-02fa5de826a2" width="100%">
+  </video>
 </div>
 
 ---
