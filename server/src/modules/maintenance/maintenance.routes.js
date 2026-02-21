@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const maintenanceController = require('./maintenance.controller');
 
-router.get('/', (req, res) => {
-    res.json({ message: 'Maintenance route working' });
-});
+router.post('/', maintenanceController.createMaintenance);
+router.get('/', maintenanceController.getMaintenanceLogs);
+router.patch('/:id/status', maintenanceController.updateMaintenanceStatus);
 
 module.exports = router;
